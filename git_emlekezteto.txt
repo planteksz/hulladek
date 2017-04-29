@@ -1,0 +1,119 @@
+Gratulálok, hogy sikerült letölteni a tárolót.
+Így jött létre a tároló másolata a saját gépünkön:
+   git clone ssh://choir@pyedu.hu/home/choir/hulladek.git
+
+Erről bővebben:
+http://git-scm.com/book/en/Git-Basics-Getting-a-Git-Repository#Cloning-an-Existing-Repository
+
+
+Mielőtt bármit csinálunk, érdemes beállítani a nevünket és az
+e-mail-címünket. Ez fog szerepelni a változástörténetben (log).
+
+    git config --global user.name "John Doe"
+    git config --global user.email johndoe@example.com
+
+Bővebb leírás, többek között a használt szerkesztő (vim, nano...)
+beállítása:
+http://git-scm.com/book/en/Getting-Started-First-Time-Git-Setup
+
+Az idézett webcímken, a Pro Git könyvben, a további utasításokról is
+bővebb leírás olvasható.  Alább szó lesz néhányról, de a végén önállóan
+érdemes megnézegetni az itt szereplőkön kívül a  diff parancsot is. Nem
+kell rögtön teljes mélységébe belemenni, de az alapvető működést érdemes
+onnan megnézni, és tudni róla, hogyha pl. bonyolultabb amit meg akarunk
+tudni a diff-fel, akkor ott tovább lehet bővíteni az ismereteket.
+Könnyen meg lehet találni az egyes utasításokról szóló részt az
+utasítás-indexben:
+http://git-scm.com/book/commands
+
+Az egyes oldalakon pedig van egy Chapters feliratú legördülő menü,
+amelyben a tartalomjegyzék megnézhető. (Az Index oldalon nincs ilyen
+menü.)  Mivel az Index of Commands is szerepel a legördülő menüben, elég
+egyetlen oldalt berakni a böngésző könyvjelzői közé.
+Talán érdemes mindenek előtt az 1.1 és különösen az 1.3 fejezetet
+elolvasni, hogy mik is azok a git tárolók és az egyes verziók, amiket (nem tudok jó
+magyar szót) a commit-okkal létrehozunk.
+
+
+Nézzük meg milyen változások vannak már rögzítve:
+
+  git log
+
+vagy 
+
+  git log --oneline
+
+A git-ben fejlesztési ágakat hozhatunk létre.
+
+( Ez nem fontos még.
+( Általában egy program különböző verzióit szokták külön ágakban
+( fejleszteni. Hiszen azzal, hogy egy újabb verziót fejlesztünk, még a
+( régi verziót használó felhasználónk hibajelentéseit is ellenőrizni kell
+( tudnunk, illetve arra hibajavításokat kiadni.
+
+Normál esetben a master ágban (master branch) vagyunk.
+
+( Ez nem fontos még.
+( Kezdetben ez az egyetlen ág, de könnyen hozható létre új ág a branch
+( paranccsal (lásd Pro Git 3.1 és 3.2-dik fejezet, branch és checkout
+( parancs az indexben).  Kérem, hozzanak létre (legalább egy) saját ágat,
+( amelynek a neve lehet a saját nevük vagy a projekt rövid neve is.
+( Olyanokat használjanak, amilyeneket változónevekként szoktak:
+( pyProgramTester (általában rövidek és csak betűsek szoktak lenni).
+
+Hozzáadhatunk valamilyen fájlt. Pl. x.py esetén, ha vim-mel szerkesztjük:
+
+  vim x.py
+  (...)
+  :wq
+
+Változott valami?
+
+  git status
+
+Hozzunk létre egy új változatot (fájl(ok) hozzáadása és commit):
+
+  git add x.py
+  git commit
+  (Valami szöveget beírni. Pl: "Létrehoztuk a szuper python fájlt")
+  (Kilépés a szerkesztőből.)
+
+Minden változást hozzáad:
+
+  git commit -a
+
+Megnézzük az eddigi verziókat:
+
+  git log
+
+Ha régebben töltöttünk le utoljára (régebben volt az utolsó clone vagy
+pull), hozzuk le a mások által azóta feltöltött változásokat:
+(A "régen" itt azt jelenti, hogy jó eséllyel történhettek azóta
+változtatások.)
+
+  git pull
+
+( Ez nem fontos még.
+( A git pull-nál meg kell nézni a leírást, hogy több ág esetén melyik
+( ágat hozza le: mindet, vagy csak amelyikben vagyunk. Hasonló igaz a push
+( utasításra is.
+( 
+( Ha jónak látjuk, összefésüljük a master ággal az általunk létrehozott
+( dolgokat.
+( 
+(   git checkout master
+(   git merge pyProgramTester
+
+Feltöltjük a szerverre
+(Bízunk benne, hogy ezalatt a nagyon rövid idő alatt más nem töltött fel
+új változatot. Különben követni kell a git által kiírt dolgokat. A
+helyzet megoldása csak akkor nehezebb, ha azonos fájlt is
+szerkesztettünk. Ha külön könyvtárban lévő fájlokon dolgoznak, nem
+nagyon várható ilyen.)
+
+  git push
+
+Ha most valaki clone-oz vagy pull-oz, akkor már a mi fájlunkat is látja
+a master ágban.
+
+(Korábban írtam, hogy a git diff utasítást érdemes megnézni.)
