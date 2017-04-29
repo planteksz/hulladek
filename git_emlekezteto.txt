@@ -16,7 +16,7 @@ Bővebb leírás, többek között a használt szerkesztő (vim, nano...)
 beállítása:
 http://git-scm.com/book/en/Getting-Started-First-Time-Git-Setup
 
-Az idézett webcímken, a Pro Git könyvben, a további utasításokról is
+Az idézett webcímeken, a Pro Git könyvben, a további utasításokról is
 bővebb leírás olvasható.  Alább szó lesz néhányról, de a végén önállóan
 érdemes megnézegetni az itt szereplőkön kívül a  diff parancsot is. Nem
 kell rögtön teljes mélységébe belemenni, de az alapvető működést érdemes
