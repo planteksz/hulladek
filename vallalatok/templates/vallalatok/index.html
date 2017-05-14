@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+ 
+  {% block title %}<title>Hulladék kezelés</title>{% endblock %}
+</head>
+
+<body>
+{% load static %} 
+{% block sidebar %}
+    <!--<a href="{% url 'index' %}">Kezdőlap</a>. -->
+     <a href="{% url 'adatfel' %}">Adatfelvétel</a>. 
+       <a href="{% url 'nyilvantartas' %}">Nyilvántartás</a>. 
+{% endblock %}
+
+{% block content %}
+
+<h1>Hulladékkezelő rendszer</h1>
+
+  <p>cső</p>
+
+
+<link rel="stylesheet" type="text/css" href="{% static 'vallalatok/style.css' %}" />
+<link rel="stylesheet" href="{% static 'vallalatok/styles.css' %}">
+<ul>
+<li><a href="/nev/{{ telepules.nev }}/">{{ telepules.nev }}</a></li>
+<li><i>ez lesz a salalalala</i></li>
+<li> asszem ez lesz az index oldal :3</li>
+</ul>
+{% endblock %}
+
+
+</body>
+</html>

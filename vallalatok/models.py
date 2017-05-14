@@ -28,10 +28,16 @@ def length_validator_creator(length):
 validator_4_length = length_validator_creator(4)
 validator_9_length = length_validator_creator(9)
 
+class Vezeto(models.Model): #ez egy modell, minden az amelyik class
+    nev = models.CharField(max_length=120)
+    beosztas = models.CharField(max_length=150)
+def __str__(self):
+        return "{} {}".format(self.nev, self.beosztas)
+
 
 class Telepules(models.Model):
-    nev = models.CharField(max_length=100)
-    megyek = (
+    nev = models.CharField(max_length=100) #ez lesz az oszlop neve az adatb-ben (a nev)
+    megyek = ( #itt is a megye lesz az oszlop neve
         "Budapest", "Pest", "Fejér", "Komárom-Esztergom",
         "Veszprém", "Győr-Moson-Sopron", "Vas", "Zala",
         "Baranya", "Somogy", "Tolna", "Borsod-Abaúj-Zemplén",
@@ -113,9 +119,6 @@ class Telephely(models.Model):
     felelos_beosztas = models.CharField(
         "felelős személy beosztása",
         max_length=30)
-
-    def __str__(self):
-        return "{} {}".format(self.KTJ, self.ne)
 
 
 class Tevekenyseg:

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+ 
+  {% block title %}<title>Nyilvántartó aloldal</title>{% endblock %}
+</head>
+
+<body>
+{% load static %} 
+
+{% block sidebar %}
+ <a href="{% url 'index' %}">Kezdőlap</a>. 
+ <a href="{% url 'adatfel' %}">Adatfelvétel</a>. 
+{% endblock %}
+{% block content %}
+
+<h1>Nyilvántartás a hulladékkal kapcsolatos adatszolgáltatásról</h1>
+
+  <p>cső</p>
+
+
+{% endblock %}
+
+
+</body>
+</html>
