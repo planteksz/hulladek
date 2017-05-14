@@ -15,9 +15,15 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from vallalatok.views import index, adatfel, nyilvantart
+from vallalatok import views
 
 urlpatterns = [
     url(r'^vallalatok/', include('vallalatok.urls')),
     url(r'^users/', include('users.urls')),
     url(r'^admin/', admin.site.urls),
+    url(r'^$', views.IndexView.as_view(), name='index'),
+    url(r'^nyilv$', nyilvantart, name='nyilvantartas'),
+    url(r'^adat$', views.AdatFelView.as_view(), name='adatfel'),
+    
 ]
