@@ -5,7 +5,7 @@ from django.http import HttpResponse
 from django.urls import reverse
 from django.views import generic
 from django.shortcuts import render
-
+from vallalatok import models
 from .models import Telepules, TermeloVallalat
 
 # Create your views here.
@@ -26,39 +26,32 @@ class AdatFelView(generic.ListView):
         return TermeloVallalat.objects.order_by('-pub_date')[:5]
 
 
-class NyilvView(generic.ListView):
+#class NyilvView(generic.ListView):
    # model = TermeloVallalat
-    template_name = 'vallalatok/nyilva.html'
-    def get_queryset(self):
-        """Return the last five published questions."""
-        return TermeloVallalat.objects.order_by('-pub_date')[:5]
+    #template_name = 'vallalatok/nyilva.html'
+    #def get_queryset(self):
+    #    """Return the last five published questions."""
+     #   return TermeloVallalat.objects.order_by('-pub_date')[:5]
 
 
 
 def index(request):
-    """
-    View function for home page of site.
-    """
-    # Generate counts of some of the main objects
-    num_telep=Telepules.objects.all().count()
-    num_term=TermeloVallalat.objects.all().count()
-    
-    # Render the HTML template index.html with the data in the context variable
-    return render( request, 'index.html',context={'num_telep':num_telep,'num_term':num_term},
-    )
-
-
-def adatfel(request):
-   # question = get_object_or_404(TermeloVallalat, pk=KUJ)
-    num_telep=Telepules.objects.all().count()
-    num_term=TermeloVallalat.objects.all().count()
-    
-    # Render the HTML template index.html with the data in the context variable
-    return render( request, 'adatfel.html',context={'num_telep':num_telep,'num_term':num_term},
-    )
+    return render( request, 'index.html')
 
 def nyilvantart(request):
-    return render(request, 'nyilva.html')
+      telep = models.Telepules.objects.all()
+      context={
+          'telep':telep
+      }
+      return render(request, 'vallalatok/nyilva.html', context)
+
+def adatfel(request):
+    return render( request, 'adatfel.html')
+
+#def nyilvantart(request):
+  #  return render(request, 'nyilva.html')
+
+
 
 
 

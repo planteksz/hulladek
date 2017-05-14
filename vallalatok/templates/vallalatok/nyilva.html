@@ -15,12 +15,28 @@
 {% block content %}
 
 <h1>Nyilvántartás a hulladékkal kapcsolatos adatszolgáltatásról</h1>
+<table> 
+  <tr>
+    <td>
+    Település neve
+    </td>
+    <td>
+    Megye
+    </td>
+  </tr>
 
-  <p>cső</p>
-
-
+</table>
+{% for Telepules in telep %} 
+  <tr>
+    <td>
+    {{Telepules.nev}}
+    </td>
+    <td>
+    {{Telepules.megye}}
+    </td>
+  </tr>
+{%endfor%}
+</table>
 {% endblock %}
-
-
 </body>
 </html>
