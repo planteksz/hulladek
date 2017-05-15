@@ -2,6 +2,26 @@ li a {
     color: green;
 }
 
+header{
+   height: 300px;
+   width: 1980px;
+   font-family: "calibri";
+   font-size: 20px;
+   letter-spacing: 2px;
+   text-shadow: 1.5px 2px darkgreen;
+   color: white;
+   text-align:center;
+   text-transform: uppercase;
+   background-color: #ffffff;
+   background-image: url("images/mezoo2.jpg"); 
+   background-repeat: no-repeat;
+
+}
+
 body {
-    background: white url("images/background1.jpg") no-repeat top ;
+    text-align: center;
+    font-family: "arial";
+    font-size: 16px;
+    word-spacing: 3px;
+    color: green;
 }

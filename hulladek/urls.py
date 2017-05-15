@@ -24,6 +24,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.IndexView.as_view(), name='index'),
     url(r'^nyilv$', nyilvantart, name='nyilvantartas'),
-    url(r'^adat$', views.AdatFelView.as_view(), name='adatfel'),
+    url(r'^adat$', adatfel, name='adatfel'),
     
 ]

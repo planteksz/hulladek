@@ -4,39 +4,102 @@
  
   {% block title %}<title>Nyilvántartó aloldal</title>{% endblock %}
 </head>
-
+<header>
+<h1>Nyilvántartás a hulladékkal kapcsolatos adatszolgáltatásról</h1>
+</header>
 <body>
 {% load static %} 
 
+<link rel="stylesheet" href="{% static 'vallalatok/styles.css' %}"/>
 {% block sidebar %}
- <a href="{% url 'index' %}">Kezdőlap</a>. 
- <a href="{% url 'adatfel' %}">Adatfelvétel</a>. 
+ <br><a href="{% url 'index' %}">Kezdőlap</a>. 
+<br> <a href="{% url 'adatfel' %}">Adatfelvétel</a>. 
 {% endblock %}
 {% block content %}
-
-<h1>Nyilvántartás a hulladékkal kapcsolatos adatszolgáltatásról</h1>
 <table> 
   <tr>
-    <td>
-    Település neve
-    </td>
-    <td>
-    Megye
-    </td>
+    <th>Felelős neve:</th>
+    <th>Beosztása:</th>
   </tr>
 
-</table>
-{% for Telepules in telep %} 
+{% for Vezeto in vez %} 
   <tr>
-    <td>
-    {{Telepules.nev}}
-    </td>
-    <td>
-    {{Telepules.megye}}
-    </td>
+    <td>{{Vezeto.nev}}</td>
+    <td>{{Vezeto.beosztas}}</td>
   </tr>
 {%endfor%}
 </table>
+<br>
+<table> 
+  <tr>
+    <th>Település neve:</th>
+    <th>Megye:</th>
+  </tr>
+
+{% for Telepules in telep %} 
+  <tr>
+    <td>{{Telepules.nev}}</td>
+    <td>{{Telepules.megye}}</td>
+  </tr>
+{%endfor%}
+</table>
+
+<br>
+<table> 
+  <tr>
+    <th>KUJ:</th>
+    <th>KSH:</th>
+   <th> Név: </th>
+       <th>Irányítószám:</th>
+       <th>Település:</th>
+       <th>Közterület neve:</th>
+       <th>Közterület típusa:</th>
+    <td>Házszám:</th>
+  </tr>
+{% for TermeloVallalat in termv %} 
+  <tr>
+    <td>{{TermeloVallalat.KUJ}}</td>
+    <td>{{TermeloVallalat.KSH}}</td>
+        <td>{{TermeloVallalat.nev}}</td>
+            <td>{{TermeloVallalat.iranyitoszam}}</td>
+            <td>{{TermeloVallalat.telepules}} </td>
+            <td>{{TermeloVallalat.kozterulet_nev}} </td>
+            <td>{{TermeloVallalat.kozterulet_tipus}} </td>
+            <td>{{TermeloVallalat.hazszam}}</td>
+  </tr>
+{%endfor%}
+</table>
+
+<br>
+<table> 
+  <tr>
+    <th>KUJ:</th>
+    <th>KSH:</th>
+   <th> Név: </th>
+       <th>Irányítószám:</th>
+       <th>Település:</th>
+       <th>Közterület neve:</th>
+       <th>Közterület típusa:</th>
+    <td>Házszám:</th>
+  </tr>
+{% for Telephely in telhely %} 
+  <tr>
+    <td>{{Telephely.KTJ}}</td>
+    <td>{{Telephely.nev}}</td>
+        <td>{{Telephely.tipus}}</td>
+            <td>{{Telephely.iranyitoszam}}</td>
+            <td>{{Telephely.telepules}} </td>
+            <td>{{Telephely.kozterulet_nev}} </td>
+            <td>{{Telephely.kozterulet_tipus}} </td>
+            <td>{{Telephely.hazszam}}</td>
+            <td>{{Telephely.foglalkoztatottak_szama}}</td>
+            <td>{{Telephely.felelos_nev}}</td>
+            <td>{{Telephely.felelos_beosztas}}</td>
+  </tr>
+{%endfor%}
+</table>
+<br>
+
 {% endblock %}
 </body>
 </html>

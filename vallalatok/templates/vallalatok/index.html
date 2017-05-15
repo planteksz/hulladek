@@ -1,33 +1,35 @@
-
 <!DOCTYPE html>
 <html lang="hu">
 <head>
  
-  {% block title %}<title>Hulladék kezelés</title>{% endblock %}
+{% block title %}<title>Hulladék kezelés</title>{% endblock %}
 </head>
-
+<header>
+<h1>Környezetvédelmi nyilvátartás</h1>
+</header>
 <body>
 {% load static %} 
 {% block sidebar %}
     <!--<a href="{% url 'index' %}">Kezdőlap</a>. -->
-     <a href="{% url 'adatfel' %}">Adatfelvétel</a>. 
-       <a href="{% url 'nyilvantartas' %}">Nyilvántartás</a>. 
+    <br> <a href="{% url 'adatfel' %}">Adatfelvétel</a>
+    <br> <a href="{% url 'nyilvantartas' %}">Nyilvántartás</a>
 {% endblock %}
 
 {% block content %}
 
-<h1>Hulladékkezelő rendszer</h1>
 
-  <p>cső</p>
-
-
+<h2>
+<p>Üdvözöljük a Juglans Alba Mérnöki Iroda adattároló oldalán!</p>
+</h2>
 <link rel="stylesheet" type="text/css" href="{% static 'vallalatok/style.css' %}" />
-<link rel="stylesheet" href="{% static 'vallalatok/styles.css' %}">
-<ul>
-<li><a href="/nev/{{ telepules.nev }}/">{{ telepules.nev }}</a></li>
-<li><i>ez lesz a salalalala</i></li>
-<li> asszem ez lesz az index oldal :3</li>
-</ul>
+
+
+<p><i>A nyilvántartás eléréséhez kattintson a fenti megfelelő menüpontra!</i></p>
+A környezetvédelem ma a gazdaság szereplőinek gyakran okoz nehézségeket, 
+  <br>teremt konfliktushelyzeteket, és jelent többlet terhet, mind munkában mind anyagiakban.
+<br>Társaságunk célja, hogy megkönnyítse jelenlegi és leendő partnereink munkáját,
+<br>segítse terveinek megvalósítását, és fejlődését, nem feledve, 
+hogy közös célunk egy tiszta és <br>élhető környezet fenntartása.
 {% endblock %}
 
 

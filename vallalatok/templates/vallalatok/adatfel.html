@@ -3,22 +3,36 @@
 <head>
  {% block title %}<title>Adatfelvétel aloldal</title>{% endblock %}
 </head>
-
+<header>
+<h1>Weboldal a hulladékkal kapcsolatos éves adatszolgáltatás teljesítéséhez</h1>
+</header>
 <body>
 {% load static %} 
+
+<link rel="stylesheet" href="{% static 'vallalatok/styles.css' %}">
 {% block sidebar %}
-     <a href="{% url 'index' %}">Kezdőlap</a>.  
-     <a href="{% url 'nyilvantartas' %}">Nyilvántartás</a>.
+    <br> <a href="{% url 'index' %}">Kezdőlap</a>.  
+    <br><a href="{% url 'nyilvantartas' %}">Nyilvántartás</a>.
 {% endblock %}
 
 {% block content %}
+<h1>Adatfelvétel</h1>
+<form action="" method="POST">
+  <p>Regisztráljon egy másik felelőst:</p>
+  {% csrf_token %}
+  {{ formregister.as_p }}
+<button type="submit" class="btn btn-primary" > OK </button>
+<h1>{{msg}}</h1>
 
-<h1>Weboldal a hulladékkal kapcsolatos éves adatszolgáltatás teljesítéséhez</h1>
-
-  <p>cső</p>
-
-
+<p>Regisztráljon egy települést:</p>
+  {% csrf_token %}
+  {{ formregister.as_p }}
+  {{ formregister2.as_p }}
+<button type="submit" class="btn btn-primary" > OK </button>
+<h1>{{msg}}</h1>
+</form>
 {% endblock %}
+
 
 
 </body>
