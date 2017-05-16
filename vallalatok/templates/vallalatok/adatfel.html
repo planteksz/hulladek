@@ -24,10 +24,22 @@
 <button type="submit" class="btn btn-primary" > OK </button>
 <h1>{{msg}}</h1>
 
-<p>Regisztráljon egy települést:</p>
+
+<p>Település:</p>
   {% csrf_token %}
-  {{ formregister.as_p }}
   {{ formregister2.as_p }}
+<button type="submit" class="btn btn-primary" > OK </button>
+
+<p>Termelő vállalat:</p>
+  {% csrf_token %}
+  {{ formregister3.as_p }}
+<button type="submit" class="btn btn-primary" > OK </button>
+<h1>{{msg}}</h1>
+
+
+<p>Telephely:</p>
+  {% csrf_token %}
+  {{ formregister4.as_p }}
 <button type="submit" class="btn btn-primary" > OK </button>
 <h1>{{msg}}</h1>
 </form>
